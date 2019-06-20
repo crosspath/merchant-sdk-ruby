@@ -15,14 +15,14 @@ module MerchantSamples
 
     initializer "merchant_samples.configure_simple_form" do |app|
       SimpleForm.setup do |config|
-        config.wrappers :api_sample_form, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
+        config.wrappers :api_sample_form, tag: 'div', class: 'control-group', error_class: 'error' do |b|
           b.use :html5
           b.use :placeholder
           b.use :label
-          b.wrapper :tag => 'div', :class => 'controls' do |ba|
+          b.wrapper tag: 'div', class: 'controls' do |ba|
             ba.use :input
-            ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
-            ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
+            ba.use :error, wrap_with: {tag: 'span', class: 'help-inline' }
+            ba.use :hint,  wrap_with: {tag: 'p', class: 'help-block' }
           end
         end
         config.form_class  = "simple_form form-horizontal"

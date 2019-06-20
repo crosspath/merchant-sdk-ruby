@@ -2,3 +2,102 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.navbar {
+  background-color: #B8D1F0;
+}
+.navbar-inner {
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em 1em 0 1em;
+}
+.navbar-inner .left-col ul {
+  padding: 0 0 0 1em;
+}
+.navbar-inner .left-col li {
+  color: #296BBA;
+}
+.navbar-inner .left-col a {
+  color: #062E5E;
+  text-decoration: none;
+}
+.navbar-inner .left-col a:hover {
+  color: black;
+}
+.navbar-inner .right-col p {
+  margin: 0 0 1em 0;
+  text-align: right;
+}
+.navbar-inner .right-col .text {
+  font-size: smaller;
+}
+
+.page {
+  column-gap: 1em;
+  display: grid;
+  grid-template-columns: 30em auto;
+}
+.page .nav {
+  background-color: white;
+  border-right: 2px solid #B8D1F0;
+  margin: 0 0 1em 0;
+  padding: 0 0 1em 2em;
+}
+.page .nav .nav-header {
+  border-bottom: 2px solid #3C5778;
+  color: #062E5E;
+  margin: 1em 1em 0.6em -1em;
+  list-style-type: none;
+}
+.page .nav li {
+  color: #7EB1F0;
+}
+.page .nav a {
+  color: #296BBA;
+  text-decoration: none;
+}
+.page .nav a:hover {
+  color: #062E5E;
+}
+
+.page main {
+  padding: 0em 1em 1em 0;
+}
+.page main legend {
+  border-bottom: 2px solid #B8D1F0;
+  margin: 1em 0;
+  padding: 0;
+}
+.page main .control-group {
+  margin-bottom: 0.5em;
+}
+.page main .control-label {
+  display: block;
+  margin-bottom: 0.2em;
+}
+.page main .form-actions {
+  margin-top: 1em;
+}
+.page main .btn {
+  border: 0;
+  font-size: medium;
+}
+
+.btn {
+  background-color: #296BBA;
+  border-radius: 0.5em;
+  color: white;
+  padding: 0.5em;
+  text-decoration: none;
+}
+.btn:hover {
+  background-color: #062E5E;
+  cursor: pointer;
+}
+
+.CodeRay {
+  max-width: calc(100vw - 530px);
+  overflow-x: auto;
+}

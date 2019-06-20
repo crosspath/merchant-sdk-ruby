@@ -1,0 +1,15 @@
+= api_form_for @get_balance, url: merchant_path(:get_balance) do |f|
+  .row
+    .span5
+      legend Get balance request
+      - options = [\
+          ["Return only the balance for the primary currency holding", "0"],\
+          ["Return the balance for each currency holding", "1"]\
+        ]
+      = f.input :ReturnAllCurrencies, collection: options
+
+  .form-actions
+    = f.submit "Submit", class: "btn btn-primary", data: {disable_with: "Processing.."}
+
+- if @get_balance_response
+  = render 'api_response', request: @get_balance, response: @get_balance_response

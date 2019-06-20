@@ -1,0 +1,8 @@
+#response
+  p
+    b Ruby Code:
+    = simple_format CodeRay.scan(generate_code(request, response), "ruby").div.html_safe
+  p
+    b Response:
+    - response_hash = response.to_hash(attribute: false, namespace: false)
+    = simple_format CodeRay.scan(format_hash(response_hash), "ruby").div.html_safe

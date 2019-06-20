@@ -1,3 +1,11 @@
+<div style="
+  border-radius: 4px; border: 1px solid #D29D64; background-color: #FBDCBB; color: #C58239;
+  text-align: center;
+">
+  <p>This fork supports Rails 5.2 or higher.</p>
+  <p>Also, this fork does not depend on frontend libraries: jQuery, jQuery UI, Twitter Bootstrap.</p>
+</div>
+
 # Merchant
 
 The PayPal Merchant SDK provides Ruby APIs for processing payments, recurring payments, subscriptions and transactions using PayPal's Merchant APIs, which include Express Checkout, Recurring Payments, Direct Payment and Transactional APIs.
@@ -27,8 +35,6 @@ $ gem install paypal-sdk-merchant
 ```
 
 ## Configuration
-
-**Please note Rails 4+ is not supported due to [backward compatibility concern](https://github.com/paypal/merchant-sdk-ruby/pull/16#issuecomment-54171388).**
 
 For Rails application:
 
@@ -71,29 +77,35 @@ PayPal::SDK.load('config/paypal.yml',  ENV['RACK_ENV'] || 'development')
 ```ruby
 require 'paypal-sdk-merchant'
 PayPal::SDK.configure(
-  :mode      => "sandbox",  # Set "live" for production
-  :app_id    => "APP-80W284485P519543T",
-  :username  => "jb-us-seller_api1.paypal.com",
-  :password  => "WX4WTU3S8MY44S7F",
-  :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy" )
+  mode:      "sandbox",  # Set "live" for production
+  app_id:    "APP-80W284485P519543T",
+  username:  "jb-us-seller_api1.paypal.com",
+  password:  "WX4WTU3S8MY44S7F",
+  signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy"
+)
 
 @api = PayPal::SDK::Merchant.new
 
 # Build request object
 @do_direct_payment = @api.build_do_direct_payment({
-  :DoDirectPaymentRequestDetails => {
-    :PaymentAction => "Sale",
-    :PaymentDetails => {
-      :OrderTotal => {
-        :currencyID => "USD",
-        :value => "1" },
-      :NotifyURL => "http://localhost:3000/samples/merchant/ipn_notify" },
-    :CreditCard => {
-      :CreditCardType => "Visa",
-      :CreditCardNumber => "4904202183894535",
-      :ExpMonth => 12,
-      :ExpYear => 2022,
-      :CVV2 => "962" } } })
+  DoDirectPaymentRequestDetails: {
+    PaymentAction: "Sale",
+    PaymentDetails: {
+      OrderTotal: {
+        currencyID: "USD",
+        value:      "1"
+      },
+      NotifyURL: "http://localhost:3000/samples/merchant/ipn_notify"
+    },
+    CreditCard: {
+      CreditCardType:   "Visa",
+      CreditCardNumber: "4904202183894535",
+      ExpMonth:         12,
+      ExpYear:          2022,
+      CVV2:             "962"
+    }
+  }
+})
 
 # Make API call & get response
 @response = @api.do_direct_payment(@do_direct_payment)
@@ -112,7 +124,7 @@ Add following line in rails `Gemfile`:
 
 ```ruby
 gem 'paypal-sdk-merchant'
-gem 'merchant_samples', :git => "https://github.com/paypal/merchant-sdk-ruby.git", :group => :development
+gem 'merchant_samples', git: "https://github.com/paypal/merchant-sdk-ruby.git", group: :development
 ```
 
 Configure routes(`config/routes.rb`):

@@ -1,0 +1,10 @@
+.navbar
+  .navbar-inner
+    .left-col
+      span.brand PayPal SDK
+      ul
+        = active_li_regexp "Merchant", merchant_path
+    .right-col
+      - src_url = "https://github.com/paypal/merchant-sdk-ruby"
+      p= link_to "Source Code", src_url, class: 'btn'
+      p.text Click Submit to Generate Code!

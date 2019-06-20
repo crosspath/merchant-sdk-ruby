@@ -1,7 +1,7 @@
 Dummy::Application.routes.draw do
 
-  mount MerchantSamples::Engine => "/samples", :as => :merchant_samples
+  mount MerchantSamples::Engine => "/samples", as: :merchant_samples
 
-  root :to => redirect("/samples")
+  root to: redirect("/samples")
 
 end

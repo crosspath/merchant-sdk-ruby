@@ -9,11 +9,12 @@ require 'paypal-sdk-<%= service_name.gsub("_", "") %>'
 
 # Access Response
 if @<%= service_action %>_response.success?
-<% api_response.members.keys.each do |key| -%>
-  <% unless [ :Timestamp, :Version, :Build, :type, :Ack, :xmlns, :CorrelationID, :Errors ].include? key -%>
+<% symbols = [:Timestamp, :Version, :Build, :type, :Ack, :xmlns, :CorrelationID, :Errors] %>
+<% api_response.members.keys.each do |key| %>
+<% unless symbols.include?(key) %>
   @<%= service_action %>_response.<%= key %>
-  <% end -%>
-<% end -%>
+<% end %>
+<% end %>
 else
   @<%= service_action %>_response.Errors
 end
